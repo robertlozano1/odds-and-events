@@ -88,15 +88,16 @@ function NumberList(title, list) {
   $heading.textContent = title;
   $section.appendChild($heading);
 
-  // Unordered list of numbers
-  const $ul = document.createElement("ul");
-  list.forEach((num) => {
-    const $li = document.createElement("li");
-    $li.textContent = num;
-    $ul.appendChild($li);
-  });
+  // Read-only input showing numbers
+  const $input = document.createElement("input");
+  $input.type = "text";
+  $input.readOnly = true;
+  $input.style.width = "98%";
+  $input.style.fontSize = "1.2em";
+  $input.style.marginBottom = "1em";
+  $input.value = list.join(" ");
+  $section.appendChild($input);
 
-  $section.appendChild($ul);
   return $section;
 }
 
